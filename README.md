@@ -43,6 +43,12 @@ Jingping defined the problem statement, structured the overall project direction
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
+## Acknowledgments
+-  for providing data access.
+- [Plotly](https://plotly.com/) for visualization tools.
+- [Scikit-learn](https://scikit-learn.org/) for machine learning algorithms.
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -63,4 +69,6 @@ To install all the required libraries, simply run the command below in your term
 
 ```bash
 pip install numpy pandas seaborn matplotlib scikit-learn plotly
+
+
 
