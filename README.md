@@ -6,6 +6,7 @@ The goal of this project is to analyze the various factors that influence TikTok
 
 ## Project Structure
 TikTok - Posts.csv # Raw TikTok post data
+
 main.ipynb # Notebook for EDA, data cleaning, machine learning, and insights
 
 ## Dataset Description: 
@@ -13,11 +14,10 @@ This dataset contains information about TikTok posts, including various engageme
 
 ## Methodology:
 EDA:
+
 Data cleaning:
-Machine Learning: Several machine learning models were trained to predict like count:
-Linear Regression
-Decision Tree
-Random Forest
+
+Machine Learning: Several machine learning models were trained to predict like count: Linear Regression, Decision Tree, and Random Forest. 
 To further improve performance, we used log transformation on the like count before training the final model. This helped reduce the impact of outliers and allowed the models to better learn the underlying patterns, since our like count was very right-skewed.
 We then used MSE and R-square to evalute the performance of each model, for both the train and test data.
 
@@ -34,6 +34,30 @@ Shorter videos usually lead to more engagement compared to longer ones.
 3. In general, keep videos short and engaging. Instead of making long videos, focus on shorter ones, which viewers are more likely to watch. This will help increase both views and likes.
 
 ## Individual Contributions: 
-Ruiyang was in charge of the machine learning components and implemented the interactive prediction feature on the webpage.
 Lily carried out exploratory data analysis (EDA) and took the lead in cleaning and preparing the dataset for modeling.
+
+Ruiyang was in charge of the machine learning components and implemented the interactive prediction feature on the webpage.
+
 Jingping defined the problem statement, structured the overall project direction, and created the final presentation slides.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have **Python 3.x** installed on your machine.  
+
+You will also need the following Python libraries:  
+- `numpy`  
+- `pandas`  
+- `seaborn`  
+- `matplotlib`  
+- `scikit-learn`  
+- `plotly`  
+
+###  Installation
+
+To install all the required libraries, simply run the command below in your terminal or command prompt:
+
+```bash
+pip install numpy pandas seaborn matplotlib scikit-learn plotly
+
