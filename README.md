@@ -40,6 +40,9 @@ Ruiyang was in charge of the machine learning components and implemented the int
 
 Jingping defined the problem statement, structured the overall project direction, and created the final presentation slides.
 
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
 ## Getting Started
 
 ### Prerequisites
