@@ -5,16 +5,21 @@ This project focuses on analyzing TikTok post data to understand engagement patt
 The goal of this project is to analyze the various factors that influence TikTok engagement, specifically measured by the number of likes that a video receives. Likes serve as a passive indicator of user interest and provide valuable insights into audience behavior. By understanding how posting factors such as profile followers, posting time, and video duration can affect engagement. This analysis aims to uncover actionable strategies to optimize content reach and better connect with the target audience.
 
 ## Project Structure
-|tiktok_data_analysis
-├── TikTok - Posts.csv # Raw TikTok post data
-└── main.ipynb # Notebook for EDA, data cleaning, machine learning, and insights
+TikTok - Posts.csv # Raw TikTok post data
+main.ipynb # Notebook for EDA, data cleaning, machine learning, and insights
 
 ## Dataset Description: 
 This dataset contains information about TikTok posts, including various engagement metrics, post metadata, and account information. It is used for analyzing user engagement and optimizing content strategies on the TikTok platform.
 
 ## Methodology:
+EDA:
 Data cleaning:
-
+Machine Learning: Several machine learning models were trained to predict like count:
+Linear Regression
+Decision Tree
+Random Forest
+To further improve performance, we used log transformation on the like count before training the final model. This helped reduce the impact of outliers and allowed the models to better learn the underlying patterns, since our like count was very right-skewed.
+We then used MSE and R-square to evalute the performance of each model, for both the train and test data.
 
 ## Conclusion: 
 In general, other than the content of the video, specific details about how the TikTok is posted do affect the engagement.
