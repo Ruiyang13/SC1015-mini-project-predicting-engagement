@@ -13,11 +13,14 @@ main.ipynb # Notebook for EDA, data cleaning, machine learning, and insights
 This dataset contains information about TikTok posts, including various engagement metrics, post metadata, and account information. It is used for analyzing user engagement and optimizing content strategies on the TikTok platform.
 
 ## Methodology:
-EDA: We used correlation heatmaps and plots to see which features has the strongest relations to engagement (e.g., like count). Next, we also looked at how posting day, account verification, follower count, and video length affect engagement.
+### EDA:
+We used correlation heatmaps and plots to see which features has the strongest relations to engagement (e.g., like count). Next, we also looked at how posting day, account verification, follower count, and video length affect engagement.
 
-Data cleaning: We cleaned the dataset to remove duplicate or missing values. Then, we reformatted the column names for easier and more organised interpretation. To preserve the data set with real values, we did not remove outliers. 
+### Data cleaning: 
+We cleaned the dataset to remove duplicate or missing values. Then, we reformatted the column names for easier and more organised interpretation. To preserve the data set with real values, we did not remove outliers. 
 
-Machine Learning: Several machine learning models were trained to predict like count: Linear Regression, Decision Tree, and Random Forest. 
+### Machine Learning: 
+Several machine learning models were trained to predict like count: Linear Regression, Decision Tree, and Random Forest. 
 To further improve performance, we used log transformation on the like count before training the final model. This helped reduce the impact of outliers and allowed the models to better learn the underlying patterns, since our like count was very right-skewed.
 We then used MSE and R-square to evalute the performance of each model, for both the train and test data.
 
