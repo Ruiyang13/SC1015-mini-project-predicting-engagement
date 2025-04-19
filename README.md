@@ -99,5 +99,5 @@ pip install -r requirements.txt
 
 2. Open `prediction_tool.html` in your web browser
 
-The tool will then show you the predicted number of likes for a video with the characteristics that you input.
+The tool will then show you the predicted number of likes for a Tik Tok video with the characteristics that you input.
 
