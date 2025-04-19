@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Engagement Predictor</title>
+    <style>
+        :root {
+            --primary: #89CFF0;  /* Baby Blue */
+            --secondary: #B5E5FC;  /* Light Blue */
+            --accent: #E0F7FF;  /* Very Light Blue */
+            --text: #2C3E50;  /* Dark Blue */
+            --background: #F5F9FF;  /* Very Light Blue Background */
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .prediction-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 10px;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            background: white;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: var(--secondary);
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--accent);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            display: none;
+        }
+
+        .result-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .result-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .result-box li {
+            margin: 8px 0;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TikTok Engagement Predictor</h1>
+        <div class="prediction-form">
+            <div class="form-group">
+                <label>Play Count:</label>
+                <input type="number" id="playCount" placeholder="Enter play count">
+            </div>
+            <div class="form-group">
+                <label>Profile Followers:</label>
+                <input type="number" id="followers" placeholder="Enter follower count">
+            </div>
+            <div class="form-group">
+                <label>Video Duration (seconds):</label>
+                <input type="number" id="duration" placeholder="Enter duration">
+            </div>
+            <div class="form-group">
+                <label>Weekday:</label>
+                <select id="weekday">
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Is Verified:</label>
+                <select id="verified">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <button onclick="predictLikes()">Predict Likes</button>
+            <div id="predictionResult" class="result-box"></div>
+        </div>
+    </div>
+
+    <script>
+        // Prediction function using the Flask server
+        async function predictLikes() {
+            const playCount = parseFloat(document.getElementById('playCount').value);
+            const followers = parseFloat(document.getElementById('followers').value);
+            const duration = parseFloat(document.getElementById('duration').value);
+            const weekday = parseInt(document.getElementById('weekday').value);
+            const verified = parseInt(document.getElementById('verified').value);
+
+            try {
+                const response = await fetch('http://localhost:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        play_count: playCount,
+                        is_verified: verified,
+                        profile_followers: followers,
+                        video_duration: duration,
+                        weekday: weekday
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                // Display results
+                const resultBox = document.getElementById('predictionResult');
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = `
+                    <h3>Predicted Likes: ${Math.round(data.prediction).toLocaleString()}</h3>
+                    <ul>
+                        <li>Play Count: ${playCount.toLocaleString()}</li>
+                        <li>Profile Followers: ${followers.toLocaleString()}</li>
+                        <li>Video Duration: ${duration} seconds</li>
+                        <li>Weekday: ${['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][weekday]}</li>
+                        <li>Verified Account: ${verified ? 'Yes' : 'No'}</li>
+                    </ul>
+                `;
+            } catch (error) {
+                alert('Error making prediction: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html> 

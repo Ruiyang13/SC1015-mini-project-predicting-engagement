@@ -1,0 +1,29 @@
+{
+    "model_type": "RandomForestRegressor",
+    "parameters": {
+        "n_estimators": 200,
+        "max_depth": 10,
+        "min_samples_split": 5,
+        "random_state": 42
+    },
+    "feature_names": [
+        "play_count",
+        "is_verified",
+        "profile_followers",
+        "video_duration",
+        "weekday"
+    ],
+    "feature_importance": [
+        0.8898351038191076,
+        0.000616471294183116,
+        0.02723720250733332,
+        0.01816996472348562,
+        0.06414125765589032
+    ],
+    "performance_metrics": {
+        "train_mse": 0.123,
+        "train_r2": 0.916,
+        "test_mse": 0.145,
+        "test_r2": 0.901
+    }
+} 
