@@ -72,6 +72,10 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - [Bright Data](https://brightdata.com/cp/datasets/browse/gd_lu702nij2f790tmv9h?id=hl_0a9bc27d&tab=sample) for providing sample data access.
 - [Plotly](https://plotly.com/) for visualization tools.
 - [Scikit-learn](https://scikit-learn.org/) for machine learning algorithms.
+- [Business Dasher](https://www.businessdasher.com/social-media-for-business-statistics/) for providing statistics on social media use in business.  
+- [Investopedia](https://www.investopedia.com/terms/s/social-media-marketing-smm.asp) for insights into social media marketing (SMM) concepts.  
+- [South China Morning Post](https://www.scmp.com/tech/article/2155580/tik-tok-hits-500-million-global-monthly-active-users-china-social-media-video) for reporting TikTok's global user growth.  
+- [LinkedIn Article by Zqoue](https://www.linkedin.com/pulse/importance-social-media-why-weekends-ideal-engaging-posts-zqoue/) for perspectives on optimal posting times and social media engagement.  
 
 
 
