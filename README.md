@@ -4,10 +4,21 @@ This project focuses on analyzing TikTok post data to understand engagement patt
 ## Problem Statement: 
 The goal of this project is to analyze the various factors that influence TikTok engagement, specifically measured by the number of likes that a video receives. Likes serve as a passive indicator of user interest and provide valuable insights into audience behavior. By understanding how posting factors such as profile followers, posting time, and video duration can affect engagement. This analysis aims to uncover actionable strategies to optimize content reach and better connect with the target audience.
 
-## Project files
-TikTok - Posts.csv # Raw TikTok post data
+## Project Files
 
-main.ipynb # Notebook for EDA, data cleaning, machine learning, and insights
+### Data
+- `TikTok - Posts.csv` # Raw TikTok post data
+### Analysis and Model Development
+- `main.ipynb` # Jupyter notebook
+### Web Application
+- `server.py` # Flask server
+- `prediction_tool.html` # Interface of the tool
+### Model Files
+- `trained_model.joblib` # Saved Random Forest model
+- `ohe_encoder.joblib` # Saved One-Hot Encoder for categorical features
+### Dependencies
+- `requirements.txt` # List of Python packages required to run the application
+
 
 ## Dataset Description: 
 This dataset contains information about TikTok posts, including various engagement metrics, post metadata, and account information. It is used for analyzing user engagement and optimizing content strategies on the TikTok platform.
@@ -74,6 +85,18 @@ To install all the required libraries, simply run the command below in your term
 
 ```bash
 pip install numpy pandas seaborn matplotlib scikit-learn plotly
+pip install -r requirements.txt
+```
 
+### How to run the prediction tool
 
+1. Start the Flask server:
+   ```bash
+   python server.py
+   ```
+   The server will start running on `http://localhost:5000`
+
+2. Open `prediction_tool.html` in your web browser
+
+The tool will then show you the predicted number of likes for a video with the characteristics that you input.
 
