@@ -16,6 +16,7 @@ The goal of this project is to analyze the various factors that influence TikTok
 ### Model Files
 - `trained_model.joblib` # Saved Random Forest model
 - `ohe_encoder.joblib` # Saved One-Hot Encoder for categorical features
+- `model.json` # Model configuration and metadata
 ### Dependencies
 - `requirements.txt` # List of Python packages required to run the application
 
