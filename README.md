@@ -1,4 +1,4 @@
-# Project Title: Predicting engagement for Tik Tok posts
+# Project Title: Predicting Engagement for TikTok Posts
 This project focuses on analyzing TikTok post data to understand engagement patterns and optimize content strategies. The analysis includes exploratory data analysis (EDA), data cleaning, and machine learning modeling to predict post performance.
 Team members: 
 Lily Ulfa Binte Anuar
