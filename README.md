@@ -9,7 +9,7 @@ The goal of this project is to analyze the various factors that influence TikTok
 ### Data
 - `TikTok - Posts.csv` # Raw TikTok post data
 ### Analysis and Model Development
-- `main.ipynb` # Jupyter notebook
+- `tiktok_sc1015_project_main.ipynb` # Jupyter notebook
 ### Web Application
 - `server.py` # Flask server
 - `prediction_tool.html` # Interface of the tool
