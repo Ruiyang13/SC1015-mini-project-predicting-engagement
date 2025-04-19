@@ -12,7 +12,7 @@ from datetime import datetime
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-# Load your trained model
+# Load our trained model, doing the same thing as in our notebook
 try:
     model = joblib.load('trained_model.joblib')
     ohe = joblib.load('ohe_encoder.joblib')
@@ -20,14 +20,12 @@ try:
 except:
     print("No existing model found. Training a new one...")
     try:
-        # Load and prepare data exactly as in your notebook
+        # Load and prepare data exactly as notebook
         df = pd.read_csv('TikTok - Posts.csv')
-        
-        # Convert create_time to datetime and extract weekday name
+       
         df['Timestamp'] = pd.to_datetime(df['create_time'])
         df['Weekday'] = df['Timestamp'].dt.day_name()
         
-        # Convert weekday names to numbers (Monday=0, Sunday=6)
         weekday_map = {
             'Monday': 0,
             'Tuesday': 1,
@@ -39,30 +37,24 @@ except:
         }
         df['weekday'] = df['Weekday'].map(weekday_map)
         
-        # Select features exactly as in your notebook
+        # Select features
         clean_categorical_cols = ['weekday', 'is_verified']
         clean_numeric_cols = ['play_count', 'profile_followers', 'video_duration']
-        
-        # Prepare categorical features
         df_cat = df[clean_categorical_cols]
         ohe = OneHotEncoder()
         ohe.fit(df_cat)
         df_cat_ohe = pd.DataFrame(ohe.transform(df_cat).toarray(), 
                                 columns=ohe.get_feature_names_out(df_cat.columns))
-        
-        # Prepare numeric features
+
         df_num = df[clean_numeric_cols]
-        
-        # Combine features
+
         X = pd.concat([df_num, df_cat_ohe], axis=1)
         y = np.log1p(df['digg_count'])  # Using digg_count as target
-        
-        # Split data exactly as in your notebook
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.3, random_state=42
         )
         
-        # Train model with exact same parameters
+        # Train model
         model = RandomForestRegressor(
             n_estimators=200,
             max_depth=10,
@@ -76,7 +68,7 @@ except:
         joblib.dump(ohe, 'ohe_encoder.joblib')
         print("Model and encoder trained and saved successfully")
         
-        # Print performance metrics exactly as in your notebook
+        # Print performance metrics exactly as in the notebook
         print("\nTraining Performance:")
         print("MSE:", mean_squared_error(y_train, model.predict(X_train)))
         print("R²:", r2_score(y_train, model.predict(X_train)))
@@ -110,11 +102,10 @@ def predict():
         
         # One-hot encode categorical features
         cat_encoded = ohe.transform(categorical_features).toarray()
-        
-        # Combine features
+       
         features = np.hstack([numeric_features, cat_encoded])
         
-        # Make prediction
+        #prediction
         log_prediction = model.predict(features)[0]
         prediction = np.exp(log_prediction) - 1
         
