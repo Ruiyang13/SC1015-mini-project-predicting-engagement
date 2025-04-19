@@ -1,8 +1,14 @@
 # Project Title: Predicting engagement for Tik Tok posts
 This project focuses on analyzing TikTok post data to understand engagement patterns and optimize content strategies. The analysis includes exploratory data analysis (EDA), data cleaning, and machine learning modeling to predict post performance.
+Team members: 
+Lily Ulfa Binte Anuar
+Du Ruiyang
+Lim Jing Ping
 
 ## Problem Statement: 
 The goal of this project is to analyze the various factors that influence TikTok engagement, specifically measured by the number of likes that a video receives. Likes serve as a passive indicator of user interest and provide valuable insights into audience behavior. By understanding how posting factors such as profile followers, posting time, and video duration can affect engagement. This analysis aims to uncover actionable strategies to optimize content reach and better connect with the target audience.
+
+
 
 ## Project Files
 
@@ -19,6 +25,9 @@ The goal of this project is to analyze the various factors that influence TikTok
 - `model.json` # Model configuration and metadata
 ### Dependencies
 - `requirements.txt` # List of Python packages required to run the application
+
+### Presentation Slides
+- `sc1015_slides.pptx` # Presentation slides
 
 
 ## Dataset Description: 
